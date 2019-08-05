@@ -1,0 +1,7 @@
+
+一、统计系统中普通用户数量和系统用户数量分别有多少个
+awk -F: '{if($3>=1000){x++}else{y++}} EDN{print "普通用户有"x"个","系统用户有"y"个"}'  /etc/passwd
+
+二、统计大数据量的次数文件列
+awk '{IP[$1]++} END{for(i in IP){print i,IP[i]}}' 文件路径 | awk '$2>500{print $1}'
+ 
